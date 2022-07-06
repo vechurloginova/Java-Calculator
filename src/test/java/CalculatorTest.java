@@ -7,9 +7,9 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class CalculatorTest {
     @Test
     void addition() {
-        Rational r1 = new Rational("1", "1");
-        Rational r2 = new Rational("4", "2");
-        assertEquals(new Rational("1", "2"), r1.div(r2));
+        Rational r1 = new Rational("1", "2");
+        Rational r2 = new Rational("2", "3");
+        assertEquals(new Rational("7", "6"), r1.add(r2));
 
     }
 }
