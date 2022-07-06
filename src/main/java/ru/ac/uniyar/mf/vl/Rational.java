@@ -1,8 +1,9 @@
 package ru.ac.uniyar.mf.vl;
 import java.math.BigInteger;
+import java.util.Objects;
 import java.util.Scanner;
 
-class Rational {
+public class Rational {
 
     private BigInteger num;
     private BigInteger den;
@@ -25,7 +26,7 @@ class Rational {
             den=BigInteger.ONE;
         }
     }
-    Rational(String n, String d)
+    public Rational(String n, String d)
     {
         BigInteger tmp=new BigInteger(n);
         if (tmp.intValue()==0)
@@ -133,6 +134,19 @@ class Rational {
             return "#INF";
         else
             return num.toString()+"/"+den.toString();
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Rational rational = (Rational) o;
+        return Objects.equals(num, rational.num) && Objects.equals(den, rational.den);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(num, den);
     }
 }
 class Main {
